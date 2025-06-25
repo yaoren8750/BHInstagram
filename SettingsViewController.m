@@ -100,7 +100,7 @@
         PSSpecifier *likeConfirmation = [self newSwitchCellWithTitle:@"点赞确认" detailTitle:@"当点“赞”时弹出确认弹窗" key:@"like_confirm" defaultValue:false changeAction:nil];
         PSSpecifier *followConfirmation = [self newSwitchCellWithTitle:@"关注确认" detailTitle:@"当点“关注”时弹出确认弹窗" key:@"follow_confirm" defaultValue:false changeAction:nil];
         PSSpecifier *copyDecription = [self newSwitchCellWithTitle:@"复制文案" detailTitle:@"长按复制怗子文案" key:@"copy_description" defaultValue:true changeAction:nil];
-        PSSpecifier *copyBio = [self newSwitchCellWithTitle:@"复制个人资料简历" detailTitle:@"长按个人资料复制简历" key:@"copy_bio" defaultValue:true changeAction:nil];
+        PSSpecifier *copyBio = [self newSwitchCellWithTitle:@"复制简历" detailTitle:@"长按个人资料复制简历" key:@"copy_bio" defaultValue:true changeAction:nil];
         PSSpecifier *downloadVid = [self newSwitchCellWithTitle:@"下载视频" detailTitle:nil key:@"dw_videos" defaultValue:true changeAction:nil];
         PSSpecifier *profileSave = [self newSwitchCellWithTitle:@"保存图像" detailTitle:@"长按保存个人头像." key:@"save_profile" defaultValue:true changeAction:nil];
 
