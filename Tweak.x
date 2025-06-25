@@ -22,7 +22,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                                                            id<BHDownloadDelegate> delegate,
                                                            NSInteger currentMediaIndex) {
     hud = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"BHInsta, 嗨!" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"BHInsta, Hi" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     if (media.items.count > 1) {
         if (currentMediaIndex >= 0 && currentMediaIndex < media.items.count) {
@@ -40,13 +40,13 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                     CGFloat width = imageURL.width;
                     CGFloat height = imageURL.height;
                     
-                    [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"下载照片 - %dx%d",
-                                                                     (int)width
+                    [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"Download photo - %dx%d",
+                                                                     (int)width,
                                                                      (int)height] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         BHDownload *dwManager = [[BHDownload alloc] init];
                         [dwManager downloadFileWithURL:imageURL.url];
                         [dwManager setDelegate:delegate];
-                        hud.textLabel.text = @"正在下载";
+                        hud.textLabel.text = @"Downloading";
                         [hud showInView:topMostController().view];
                     }]];
                 }
@@ -61,13 +61,13 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                     NSInteger height = [videoVersion[@"height"] integerValue];
                     NSURL *url = [NSURL URLWithString:videoVersion[@"url"]];
                     
-                    [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"下载视频 - %ldx%ld",
+                    [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"Download video - %ldx%ld",
                                                                      (long)width,
                                                                      (long)height] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         BHDownload *dwManager = [[BHDownload alloc] init];
                         [dwManager downloadFileWithURL:url];
                         [dwManager setDelegate:delegate];
-                        hud.textLabel.text = @"正在下载";
+                        hud.textLabel.text = @"Downloading";
                         [hud showInView:topMostController().view];
                     }]];
                 }
@@ -85,13 +85,13 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                 CGFloat width = imageURL.width;
                 CGFloat height = imageURL.height;
                 
-                [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"下载图片 - %dx%d",
+                [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"Download photo - %dx%d",
                                                                  (int)width,
                                                                  (int)height] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                     BHDownload *dwManager = [[BHDownload alloc] init];
                     [dwManager downloadFileWithURL:imageURL.url];
                     [dwManager setDelegate:delegate];
-                    hud.textLabel.text = @"正在下载";
+                    hud.textLabel.text = @"Downloading";
                     [hud showInView:topMostController().view];
                 }]];
             }
@@ -111,39 +111,39 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                     BHDownload *dwManager = [[BHDownload alloc] init];
                     [dwManager downloadFileWithURL:url];
                     [dwManager setDelegate:delegate];
-                    hud.textLabel.text = @"正在下载";
+                    hud.textLabel.text = @"Downloading";
                     [hud showInView:topMostController().view];
                 }]];
             }
         }
     }
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     return alert;
 }
 
 static UIAlertController * _Nonnull showDownloadProfilePictureImage(IGUser *user, id<BHDownloadDelegate> delegate) {
     hud = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"BHInsta,嗨!" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"BHInsta, Hi" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"下载个人图像" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"Download profile picture" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSURL *url = [user HDProfilePicURL];
         BHDownload *dwManager = [[BHDownload alloc] init];
         [dwManager downloadFileWithURL:url];
         [dwManager setDelegate:delegate];
-        hud.textLabel.text = @"正在下载";
+        hud.textLabel.text = @"Downloading";
         [hud showInView:topMostController().view];
     }]];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     return alert;
 }
 static void showConfirmation(void (^okHandler)(void)) {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"你确定吗?" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"是的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         okHandler();
     }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"不是" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleCancel handler:nil]];
     
     [topMostController() presentViewController:alert animated:YES completion:nil];
 }
@@ -207,17 +207,17 @@ static BOOL isAuthenticationShowed = FALSE;
 // tweak settings
 %hook IGProfileNavigationItemsController
 - (void)_onSideTrayButton:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"你想要哪些设置?" preferredStyle:UIAlertControllerStyleActionSheet];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Instagram设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Which settings you want?" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Instagram settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         %orig;
     }]];
 
-    [alert addAction:[UIAlertAction actionWithTitle:@"BHInstagram设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"BHInstagram settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[[SettingsViewController alloc] init]];
         [topMostController() presentViewController:navVC animated:YES completion:nil];
     }]];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
     [topMostController() presentViewController:alert animated:YES completion:nil];
 }
 %end
@@ -256,7 +256,7 @@ static BOOL isAuthenticationShowed = FALSE;
             NSString *deletedMessageDate = [[DeletedMessagesManager sharedManager] dateForDeletedMessageWithID:serverId];
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"BHInsta, Hi" message:[NSString stringWithFormat:@"Message deleted at: %@",
                                                                                                            deletedMessageDate] preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"好的👌" style:UIAlertActionStyleCancel handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
             [topMostController() presentViewController:alert animated:YES completion:nil];
         }] forControlEvents:UIControlEventTouchUpInside];
     }
