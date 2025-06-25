@@ -46,7 +46,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                         BHDownload *dwManager = [[BHDownload alloc] init];
                         [dwManager downloadFileWithURL:imageURL.url];
                         [dwManager setDelegate:delegate];
-                        hud.textLabel.text = @"Downloading";
+                        hud.textLabel.text = @"正在下载";
                         [hud showInView:topMostController().view];
                     }]];
                 }
@@ -67,7 +67,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                         BHDownload *dwManager = [[BHDownload alloc] init];
                         [dwManager downloadFileWithURL:url];
                         [dwManager setDelegate:delegate];
-                        hud.textLabel.text = @"Downloading";
+                        hud.textLabel.text = @"正在下载";
                         [hud showInView:topMostController().view];
                     }]];
                 }
@@ -91,7 +91,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                     BHDownload *dwManager = [[BHDownload alloc] init];
                     [dwManager downloadFileWithURL:imageURL.url];
                     [dwManager setDelegate:delegate];
-                    hud.textLabel.text = @"Downloading";
+                    hud.textLabel.text = @"正在下载";
                     [hud showInView:topMostController().view];
                 }]];
             }
@@ -111,36 +111,36 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                     BHDownload *dwManager = [[BHDownload alloc] init];
                     [dwManager downloadFileWithURL:url];
                     [dwManager setDelegate:delegate];
-                    hud.textLabel.text = @"Downloading";
+                    hud.textLabel.text = @"正在下载";
                     [hud showInView:topMostController().view];
                 }]];
             }
         }
     }
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     return alert;
 }
 
 static UIAlertController * _Nonnull showDownloadProfilePictureImage(IGUser *user, id<BHDownloadDelegate> delegate) {
     hud = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"BHInsta, Hi" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"BHInsta,嗨!" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"Download profile picture" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"下载个人资料图片" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSURL *url = [user HDProfilePicURL];
         BHDownload *dwManager = [[BHDownload alloc] init];
         [dwManager downloadFileWithURL:url];
         [dwManager setDelegate:delegate];
-        hud.textLabel.text = @"Downloading";
+        hud.textLabel.text = @"正在下载";
         [hud showInView:topMostController().view];
     }]];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     return alert;
 }
 static void showConfirmation(void (^okHandler)(void)) {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"你确定吗?" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"是的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         okHandler();
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleCancel handler:nil]];
@@ -256,7 +256,7 @@ static BOOL isAuthenticationShowed = FALSE;
             NSString *deletedMessageDate = [[DeletedMessagesManager sharedManager] dateForDeletedMessageWithID:serverId];
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"BHInsta, Hi" message:[NSString stringWithFormat:@"Message deleted at: %@",
                                                                                                            deletedMessageDate] preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"好的👌" style:UIAlertActionStyleCancel handler:nil]];
             [topMostController() presentViewController:alert animated:YES completion:nil];
         }] forControlEvents:UIControlEventTouchUpInside];
     }
