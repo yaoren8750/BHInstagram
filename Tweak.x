@@ -40,7 +40,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                     CGFloat width = imageURL.width;
                     CGFloat height = imageURL.height;
                     
-                    [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"Download photo - %dx%d",
+                    [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"下载照片- %dx%d",
                                                                      (int)width,
                                                                      (int)height] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         BHDownload *dwManager = [[BHDownload alloc] init];
@@ -61,7 +61,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                     NSInteger height = [videoVersion[@"height"] integerValue];
                     NSURL *url = [NSURL URLWithString:videoVersion[@"url"]];
                     
-                    [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"Download video - %ldx%ld",
+                    [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"下载视频 - %ldx%ld",
                                                                      (long)width,
                                                                      (long)height] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                         BHDownload *dwManager = [[BHDownload alloc] init];
@@ -85,7 +85,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                 CGFloat width = imageURL.width;
                 CGFloat height = imageURL.height;
                 
-                [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"Download photo - %dx%d",
+                [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"下载照片- %dx%d",
                                                                  (int)width,
                                                                  (int)height] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                     BHDownload *dwManager = [[BHDownload alloc] init];
@@ -105,7 +105,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                 NSInteger height = [videoVersion[@"height"] integerValue];
                 NSURL *url = [NSURL URLWithString:videoVersion[@"url"]];
                 
-                [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"Download video - %ldx%ld",
+                [alert addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"下载视频 - %ldx%ld",
                                                                  (long)width,
                                                                  (long)height] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
                     BHDownload *dwManager = [[BHDownload alloc] init];
@@ -126,24 +126,24 @@ static UIAlertController * _Nonnull showDownloadProfilePictureImage(IGUser *user
     hud = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"BHInsta, Hi" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"Download profile picture" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"下载个人图像" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSURL *url = [user HDProfilePicURL];
         BHDownload *dwManager = [[BHDownload alloc] init];
         [dwManager downloadFileWithURL:url];
-        [dwManager setDelegate:delegate]
+        [dwManager setDelegate:delegate];
         hud.textLabel.text = @"正在下载";
         [hud showInView:topMostController().view];
     }]];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     return alert;
 }
 static void showConfirmation(void (^okHandler)(void)) {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Are you sure?" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"你确定吗?" preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"是的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         okHandler();
     }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"NO" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"不是" style:UIAlertActionStyleCancel handler:nil]];
     
     [topMostController() presentViewController:alert animated:YES completion:nil];
 }
