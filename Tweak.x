@@ -118,7 +118,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
         }
     }
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     return alert;
 }
 
