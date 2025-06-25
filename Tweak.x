@@ -208,16 +208,16 @@ static BOOL isAuthenticationShowed = FALSE;
 %hook IGProfileNavigationItemsController
 - (void)_onSideTrayButton:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Which settings you want?" preferredStyle:UIAlertControllerStyleActionSheet];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Instagram settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"Instagram设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         %orig;
     }]];
 
-    [alert addAction:[UIAlertAction actionWithTitle:@"BHInstagram settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"BHInstagram设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[[SettingsViewController alloc] init]];
         [topMostController() presentViewController:navVC animated:YES completion:nil];
     }]];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [topMostController() presentViewController:alert animated:YES completion:nil];
 }
 %end
