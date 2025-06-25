@@ -207,7 +207,7 @@ static BOOL isAuthenticationShowed = FALSE;
 // tweak settings
 %hook IGProfileNavigationItemsController
 - (void)_onSideTrayButton:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Which settings you want?" preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"你想要哪些设置?" preferredStyle:UIAlertControllerStyleActionSheet];
     [alert addAction:[UIAlertAction actionWithTitle:@"Instagram设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         %orig;
     }]];
