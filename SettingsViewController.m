@@ -88,14 +88,14 @@
 - (NSArray *)specifiers {
     if (!_specifiers) {
 
-        PSSpecifier *feedSection = [self newSectionWithTitle:@"Feed" footer:nil];
+        PSSpecifier *feedSection = [self newSectionWithTitle:@"常规" footer:nil];
         PSSpecifier *mediaSection = [self newSectionWithTitle:@"保存媒体" footer:nil];
-        PSSpecifier *storySection = [self newSectionWithTitle:@"Story and direct" footer:nil];
-        PSSpecifier *securitySection = [self newSectionWithTitle:@"Security" footer:nil];
+        PSSpecifier *storySection = [self newSectionWithTitle:@"快拍和信息" footer:nil];
+        PSSpecifier *securitySection = [self newSectionWithTitle:@"安全" footer:nil];
         PSSpecifier *developer = [self newSectionWithTitle:@"开发者" footer:nil];
 
         PSSpecifier *hideAds = [self newSwitchCellWithTitle:@"移除广告" detailTitle:@"删除 Instagram 中所有广告" key:@"hide_ads" defaultValue:true changeAction:nil];
-        PSSpecifier *noSuggestedPost = [self newSwitchCellWithTitle:@"No suggested post" detailTitle:@"Remove suggested posts from the feed" key:@"no_suggested_post" defaultValue:false changeAction:nil];
+        PSSpecifier *noSuggestedPost = [self newSwitchCellWithTitle:@"移除推荐" detailTitle:@"删除动态中推荐的帖子" key:@"no_suggested_post" defaultValue:false changeAction:nil];
         PSSpecifier *showLikeCount = [self newSwitchCellWithTitle:@"Show Like count" detailTitle:@"Show like count in the post" key:@"show_like_count" defaultValue:true changeAction:nil];
         PSSpecifier *likeConfirmation = [self newSwitchCellWithTitle:@"Confirm like" detailTitle:@"Show alert when you click the like button to confirm the like" key:@"like_confirm" defaultValue:false changeAction:nil];
         PSSpecifier *followConfirmation = [self newSwitchCellWithTitle:@"Confirm Follow" detailTitle:@"Show alert when you click the Follow button to confirm the Follow" key:@"follow_confirm" defaultValue:false changeAction:nil];
