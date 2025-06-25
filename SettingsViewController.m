@@ -114,9 +114,9 @@
         PSSpecifier *appLock = [self newSwitchCellWithTitle:@"Padlock" detailTitle:@"Lock Instagram with passcode" key:@"padlock" defaultValue:false changeAction:nil];
 
         // dvelopers section
-        PSSpecifier *bandarHL = [self newHBTwitterCellWithTitle:@"BandarHelal" twitterUsername:@"BandarHL" customAvatarURL:@"https://unavatar.io/twitter/BandarHL"];
-        PSSpecifier *tipJar = [self newHBLinkCellWithTitle:@"Tip Jar" detailTitle:@"Donate Via Paypal" url:@"https://www.paypal.me/BandarHL"];
-        PSSpecifier *sourcecode = [self newHBLinkCellWithTitle:@"Source Code" detailTitle:@"BHInsta Source Code on Github" url:@"https://github.com/BandarHL/BHInstagram"];
+        PSSpecifier *bandarHL = [self newHBTwitterCellWithTitle:@"开发者" twitterUsername:@"BandarHL" customAvatarURL:@"https://unavatar.io/twitter/BandarHL"];
+        PSSpecifier *tipJar = [self newHBLinkCellWithTitle:@"捐赠" detailTitle:@"为插件开发做贡献" url:@"https://www.paypal.me/BandarHL"];
+        PSSpecifier *sourcecode = [self newHBLinkCellWithTitle:@"代码开源" detailTitle:@"Github 上的 BHinsta 源代码" url:@"https://github.com/BandarHL/BHInstagram"];
         _specifiers = [NSMutableArray arrayWithArray:@[
 
             feedSection, // 1
