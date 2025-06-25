@@ -46,7 +46,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                         BHDownload *dwManager = [[BHDownload alloc] init];
                         [dwManager downloadFileWithURL:imageURL.url];
                         [dwManager setDelegate:delegate];
-                        hud.textLabel.text = @"Downloading";
+                        hud.textLabel.text = @"正在下载";
                         [hud showInView:topMostController().view];
                     }]];
                 }
@@ -67,7 +67,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                         BHDownload *dwManager = [[BHDownload alloc] init];
                         [dwManager downloadFileWithURL:url];
                         [dwManager setDelegate:delegate];
-                        hud.textLabel.text = @"Downloading";
+                        hud.textLabel.text = @"正在下载";
                         [hud showInView:topMostController().view];
                     }]];
                 }
@@ -91,7 +91,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                     BHDownload *dwManager = [[BHDownload alloc] init];
                     [dwManager downloadFileWithURL:imageURL.url];
                     [dwManager setDelegate:delegate];
-                    hud.textLabel.text = @"Downloading";
+                    hud.textLabel.text = @"正在下载";
                     [hud showInView:topMostController().view];
                 }]];
             }
@@ -111,7 +111,7 @@ static UIAlertController * _Nonnull showDownloadMediaAlert(IGMedia *media,
                     BHDownload *dwManager = [[BHDownload alloc] init];
                     [dwManager downloadFileWithURL:url];
                     [dwManager setDelegate:delegate];
-                    hud.textLabel.text = @"Downloading";
+                    hud.textLabel.text = @"正在下载";
                     [hud showInView:topMostController().view];
                 }]];
             }
@@ -130,8 +130,8 @@ static UIAlertController * _Nonnull showDownloadProfilePictureImage(IGUser *user
         NSURL *url = [user HDProfilePicURL];
         BHDownload *dwManager = [[BHDownload alloc] init];
         [dwManager downloadFileWithURL:url];
-        [dwManager setDelegate:delegate];
-        hud.textLabel.text = @"Downloading";
+        [dwManager setDelegate:delegate]
+        hud.textLabel.text = @"正在下载";
         [hud showInView:topMostController().view];
     }]];
     
@@ -207,17 +207,17 @@ static BOOL isAuthenticationShowed = FALSE;
 // tweak settings
 %hook IGProfileNavigationItemsController
 - (void)_onSideTrayButton:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"Which settings you want?" preferredStyle:UIAlertControllerStyleActionSheet];
-    [alert addAction:[UIAlertAction actionWithTitle:@"Instagram settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"你需要哪些设置?" preferredStyle:UIAlertControllerStyleActionSheet];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Instagram设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         %orig;
     }]];
 
-    [alert addAction:[UIAlertAction actionWithTitle:@"BHInstagram settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"BHInstagram设置" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:[[SettingsViewController alloc] init]];
         [topMostController() presentViewController:navVC animated:YES completion:nil];
     }]];
     
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
     [topMostController() presentViewController:alert animated:YES completion:nil];
 }
 %end
