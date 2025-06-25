@@ -140,10 +140,10 @@ static UIAlertController * _Nonnull showDownloadProfilePictureImage(IGUser *user
 }
 static void showConfirmation(void (^okHandler)(void)) {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"你确定吗?" preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"是的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alert addAction:[UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         okHandler();
     }]];
-    [alert addAction:[UIAlertAction actionWithTitle:@"不是" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"不" style:UIAlertActionStyleCancel handler:nil]];
     
     [topMostController() presentViewController:alert animated:YES completion:nil];
 }
@@ -256,7 +256,7 @@ static BOOL isAuthenticationShowed = FALSE;
             NSString *deletedMessageDate = [[DeletedMessagesManager sharedManager] dateForDeletedMessageWithID:serverId];
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"BHInsta, Hi" message:[NSString stringWithFormat:@"Message deleted at: %@",
                                                                                                            deletedMessageDate] preferredStyle:UIAlertControllerStyleAlert];
-            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil]];
+            [alert addAction:[UIAlertAction actionWithTitle:@"好" style:UIAlertActionStyleCancel handler:nil]];
             [topMostController() presentViewController:alert animated:YES completion:nil];
         }] forControlEvents:UIControlEventTouchUpInside];
     }
