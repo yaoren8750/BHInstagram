@@ -96,22 +96,22 @@
 
         PSSpecifier *hideAds = [self newSwitchCellWithTitle:@"移除广告" detailTitle:@"删除 Instagram 中所有广告" key:@"hide_ads" defaultValue:true changeAction:nil];
         PSSpecifier *noSuggestedPost = [self newSwitchCellWithTitle:@"移除推荐" detailTitle:@"删除动态中推荐的帖子" key:@"no_suggested_post" defaultValue:false changeAction:nil];
-        PSSpecifier *showLikeCount = [self newSwitchCellWithTitle:@"Show Like count" detailTitle:@"Show like count in the post" key:@"show_like_count" defaultValue:true changeAction:nil];
-        PSSpecifier *likeConfirmation = [self newSwitchCellWithTitle:@"Confirm like" detailTitle:@"Show alert when you click the like button to confirm the like" key:@"like_confirm" defaultValue:false changeAction:nil];
-        PSSpecifier *followConfirmation = [self newSwitchCellWithTitle:@"Confirm Follow" detailTitle:@"Show alert when you click the Follow button to confirm the Follow" key:@"follow_confirm" defaultValue:false changeAction:nil];
-        PSSpecifier *copyDecription = [self newSwitchCellWithTitle:@"Copy description" detailTitle:@"Copy the post description by long press" key:@"copy_description" defaultValue:true changeAction:nil];
-        PSSpecifier *copyBio = [self newSwitchCellWithTitle:@"Copy Profile Bio" detailTitle:@"Copy the Profile Bio by long press on Bio" key:@"copy_bio" defaultValue:true changeAction:nil];
-        PSSpecifier *downloadVid = [self newSwitchCellWithTitle:@"Download Videos" detailTitle:nil key:@"dw_videos" defaultValue:true changeAction:nil];
-        PSSpecifier *profileSave = [self newSwitchCellWithTitle:@"Save profile image" detailTitle:@"Save profile image by long press." key:@"save_profile" defaultValue:true changeAction:nil];
+        PSSpecifier *showLikeCount = [self newSwitchCellWithTitle:@"显示点赞" detailTitle:@"在帖子中显示点赞数" key:@"show_like_count" defaultValue:true changeAction:nil];
+        PSSpecifier *likeConfirmation = [self newSwitchCellWithTitle:@"点赞确认" detailTitle:@"当点“赞”时弹出确认弹窗" key:@"like_confirm" defaultValue:false changeAction:nil];
+        PSSpecifier *followConfirmation = [self newSwitchCellWithTitle:@"关注确认" detailTitle:@"当点“关注”时弹出确认弹窗" key:@"follow_confirm" defaultValue:false changeAction:nil];
+        PSSpecifier *copyDecription = [self newSwitchCellWithTitle:@"复制文案" detailTitle:@"长按复制怗子文案" key:@"copy_description" defaultValue:true changeAction:nil];
+        PSSpecifier *copyBio = [self newSwitchCellWithTitle:@"复制个人资料简历" detailTitle:@"长按个人资料复制简历" key:@"copy_bio" defaultValue:true changeAction:nil];
+        PSSpecifier *downloadVid = [self newSwitchCellWithTitle:@"下载视频" detailTitle:nil key:@"dw_videos" defaultValue:true changeAction:nil];
+        PSSpecifier *profileSave = [self newSwitchCellWithTitle:@"保存图像" detailTitle:@"长按保存个人头像." key:@"save_profile" defaultValue:true changeAction:nil];
 
-        PSSpecifier *disableAutoAdvance = [self newSwitchCellWithTitle:@"Disable Auto Advance" detailTitle:@"Disable auto advance to the next story" key:@"disable_auto_advance" defaultValue:false changeAction:nil];
-        PSSpecifier *keepDelMessage = [self newSwitchCellWithTitle:@"Keep deleted message" detailTitle:@"Keep deleted direct message on the chat." key:@"keep_deleted_message" defaultValue:true changeAction:nil];
-        PSSpecifier *hideLastSeen = [self newSwitchCellWithTitle:@"Remove last seen" detailTitle:@"Remove last seen from the chat" key:@"remove_lastseen" defaultValue:false changeAction:nil];
-        PSSpecifier *noScreenShotAlert = [self newSwitchCellWithTitle:@"Remove screenshot alert" detailTitle:nil key:@"remove_screenshot_alert" defaultValue:true changeAction:nil];
-        PSSpecifier *unlimtedReply = [self newSwitchCellWithTitle:@"Unlimited replay of once story" detailTitle:@"Unlimited replay of once story in direct chat" key:@"unlimited_replay" defaultValue:false changeAction:nil];
-        PSSpecifier *noStorySeenReceipt = [self newSwitchCellWithTitle:@"Disable Story Seen Receipt" detailTitle:nil key:@"no_seen_receipt" defaultValue:false changeAction:nil];
+        PSSpecifier *disableAutoAdvance = [self newSwitchCellWithTitle:@"禁用自动播放" detailTitle:@"快拍中禁用自动播放下一个" key:@"disable_auto_advance" defaultValue:false changeAction:nil];
+        PSSpecifier *keepDelMessage = [self newSwitchCellWithTitle:@"保留已删信息" detailTitle:@"保留私信聊天中已删除的消息" key:@"keep_deleted_message" defaultValue:true changeAction:nil];
+        PSSpecifier *hideLastSeen = [self newSwitchCellWithTitle:@"禁用信息已读" detailTitle:@"允许私信聊天中磨名查看" key:@"remove_lastseen" defaultValue:false changeAction:nil];
+        PSSpecifier *noScreenShotAlert = [self newSwitchCellWithTitle:@"删除截屏弹窗" detailTitle:nil key:@"remove_screenshot_alert" defaultValue:true changeAction:nil];
+        PSSpecifier *unlimtedReply = [self newSwitchCellWithTitle:@"无限重播快拍" detailTitle:@"允许私信聊天中无限重播即时快拍" key:@"unlimited_replay" defaultValue:false changeAction:nil];
+        PSSpecifier *noStorySeenReceipt = [self newSwitchCellWithTitle:@"快拍匿名查看" detailTitle:nil key:@"no_seen_receipt" defaultValue:false changeAction:nil];
 
-        PSSpecifier *appLock = [self newSwitchCellWithTitle:@"Padlock" detailTitle:@"Lock Instagram with passcode" key:@"padlock" defaultValue:false changeAction:nil];
+        PSSpecifier *appLock = [self newSwitchCellWithTitle:@"密码锁定" detailTitle:@"密码锁定 Instagram，支持指纹或面容。" key:@"padlock" defaultValue:false changeAction:nil];
 
         // dvelopers section
         PSSpecifier *bandarHL = [self newHBTwitterCellWithTitle:@"开发者" twitterUsername:@"BandarHL" customAvatarURL:@"https://unavatar.io/twitter/BandarHL"];
